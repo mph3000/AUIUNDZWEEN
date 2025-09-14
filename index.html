@@ -216,11 +216,67 @@ pre code {
 title, h1 {
 display:none;
 }
+
+/* Fullscreen overlay */
+#welcome {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Button style */
+#welcome button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  background: #ff5500;
+  color: white;
+  cursor: pointer;
+}
+#welcome button:hover {
+  background: #ff3300;
+}
+
 </style>
-<div style="display:none">
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/auizween/ende-des-gehirns&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
-</iframe>
+<div id="welcome">
+<h2>
+HALLOHALLO, TRETEN SIE EIN!
+</h2>
+<p>
+Um die Website genießen zu können, bitte Ton an &amp; den folgenden
+Knopf drücken :-)<br> (Es wird ein Soundcloud-Lied abgespielt (schwöre!)
+:-))
+</p>
+<p><button onclick="startMusic()">Start</button></p>
 </div>
+<div id="player" style="display:none;">
+<p><iframe 
+    id="scplayer"
+    width="100%" 
+    height="166" 
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay" 
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/auizween/ende-des-gehirns&color=%23ff5500&auto_play=true">
+</iframe></p>
+</div>
+<script>
+function startMusic() {
+  // hide welcome screen
+  document.getElementById("welcome").style.display = "none";
+  // show player
+  document.getElementById("player").style.display = "none";
+}
+</script>
 
 
 
